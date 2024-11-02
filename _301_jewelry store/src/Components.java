@@ -1,3 +1,3 @@
 public class Components {
-    String name,description,quantity,quality;
+    private String name,description,quantity,quality;
 }

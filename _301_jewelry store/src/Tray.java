@@ -1,8 +1,8 @@
 import java.util.List;
 
 public class Tray {
-     int identity , counter;
-     String inlay , material ,color;
-     double dimension;
+     private int identity , counter;
+     private String inlay , material ,color;
+     private double dimension;
      List<Jewelry> jewelries;
 }

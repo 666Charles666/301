@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class Case {
-    int caseNum;
-    String type , lighting;
+    private int caseNum;
+    private String type , lighting;
     List<Tray> trays;
 }
