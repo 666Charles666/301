@@ -26,9 +26,10 @@ public class JewelryShop {
         for (int i = 0; i < cases.length; i++) {
             System.out.print("Slot " + i + ": ");
             for (Case item : cases[i]) {
-                System.out.print(item + " -> ");
+                System.out.print(item.getCaseNum() + " -> ");
             }
             System.out.println("null");
         }
     }
 }
+
