@@ -2,15 +2,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Case {
-    private static int caseNum,size;
+    private static int counter = 0;
+    private static int size;
+    private char caseNum;
     private String type , lighting;
     private final List<Tray>[] trays;
     public Case(int size){
+        this.size = size;
 
+        this.caseNum = generateCaseNum();
         trays = new List[size];
         for (int i=0;i < size; i++){
             trays[i] = new LinkedList<>();
         }
+    }
+    private char generateCaseNum() {
+        return (char) ('A' + counter++);
     }
     public int hushFunction(int key){
         return Math.abs(key%trays.length);
@@ -49,5 +56,21 @@ public class Case {
 
     public void setType(String type) {
         this.type = type;
+    }
+    public static int getSize() {
+        return size;
+    }
+
+    public static void setSize(int size) {
+        Case.size = size;
+    }
+
+
+    public char getCaseNum() {
+        return caseNum;
+    }
+
+    public void setCaseNum(char caseNum) {
+        this.caseNum = caseNum;
     }
 }
