@@ -18,9 +18,7 @@ public class Case {
         }
     }
     private char generateCaseNum() {
-            char current = identifier;
-            identifier++;
-            return current;
+            return (char) ('A' + counter++);
     }
     private int hushFunction(int key){
         return Math.abs(key%trays.length);
