@@ -2,14 +2,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Case {
-    private static int counter = 0;
+    //the counter to give trays' ID
+    private  int counter = 0;
+    private static char identifier = 'A';
     private static int size;
     private char caseNum;
     private String type , lighting;
     private final List<Tray>[] trays;
     public Case(int size){
         this.size = size;
-
         this.caseNum = generateCaseNum();
         trays = new List[size];
         for (int i=0;i < size; i++){
@@ -17,9 +18,11 @@ public class Case {
         }
     }
     private char generateCaseNum() {
-        return (char) ('A' + counter++);
+            char current = identifier;
+            identifier++;
+            return current;
     }
-    public int hushFunction(int key){
+    private int hushFunction(int key){
         return Math.abs(key%trays.length);
     }
 
@@ -40,6 +43,12 @@ public class Case {
             }
             System.out.println("null");
         }
+    }
+    public int getNextTrayNum(){
+        return ++this.counter;
+    }
+    public char getTrayIdentifier(){
+        return getIdentifier();
     }
 
     public String getLighting() {
@@ -65,7 +74,9 @@ public class Case {
         Case.size = size;
     }
 
-
+    public char getIdentifier(){
+        return identifier;
+    }
     public char getCaseNum() {
         return caseNum;
     }
