@@ -2,29 +2,46 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Case {
-    //the counter to give trays' ID
-    private  int counter = 0;
-    private static char identifier = 'A';
+
+    /**
+     * Setting a counter facilitates CaseNum generation
+     */
+    private static int counter = 0;
     private static int size;
     private char caseNum;
     private String type , lighting;
     private final List<Tray>[] trays;
     public Case(int size){
         this.size = size;
+
         this.caseNum = generateCaseNum();
         trays = new List[size];
         for (int i=0;i < size; i++){
             trays[i] = new LinkedList<>();
         }
     }
+    /**
+     * Generating numbers
+     */
+
     private char generateCaseNum() {
-            return (char) ('A' + counter++);
+        return (char) ('A' + counter++);
     }
-    private int hushFunction(int key){
+    /**
+     * a hash function
+     */
+    public int hushFunction(int key){
         return Math.abs(key%trays.length);
     }
 
-    public int add(Tray item,String type,String lighting){
+    /**
+     * add a jewelry to store
+     * @param item
+     * @param type
+     * @param lighting
+     * @return
+     */
+    public int addJewelry(Tray item,String type,String lighting){
         this.lighting = lighting;
         this.type = type;
         int key = item.hashCode();
@@ -33,6 +50,10 @@ public class Case {
 
         return index;
     }
+
+    /**
+     * display elements in this hash
+     */
     public void displayHashTable(){
         for (int i = 0; i < trays.length; i++) {
             System.out.print("Slot " + i + ": ");
@@ -42,13 +63,11 @@ public class Case {
             System.out.println("null");
         }
     }
-    public int getNextTrayNum(){
-        return ++this.counter;
-    }
-    public char getTrayIdentifier(){
-        return getIdentifier();
-    }
 
+    /**
+     * get and set functions
+     * @return
+     */
     public String getLighting() {
         return lighting;
     }
@@ -72,9 +91,7 @@ public class Case {
         Case.size = size;
     }
 
-    public char getIdentifier(){
-        return identifier;
-    }
+
     public char getCaseNum() {
         return caseNum;
     }
@@ -83,3 +100,4 @@ public class Case {
         this.caseNum = caseNum;
     }
 }
+
