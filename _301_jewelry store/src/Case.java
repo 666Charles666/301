@@ -2,24 +2,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Case {
-<<<<<<< HEAD
-    //the counter to give trays' ID
-    private  int counter = 0;
-    private char caseNum;
-=======
 
     /**
      * Setting a counter facilitates CaseNum generation
      */
-    private static int counter = 0;
+    private  int counter = 0;
 
 
 
 
->>>>>>> 5346e29480273f8ee206851d025c45f525e758ea
     private static char identifier = 'A';
     private static int size;
-
+    private char caseNum;
     private String type , lighting;
     private final List<Tray>[] trays;
     public Case(int size){
@@ -74,16 +68,6 @@ public class Case {
             System.out.println("null");
         }
     }
-<<<<<<< HEAD
-    public int getNextTrayNum(){
-        return ++this.counter;
-    }
-
-    public char getTrayIdentifier(){
-       return getIdentifier();
-    }
-=======
->>>>>>> 5346e29480273f8ee206851d025c45f525e758ea
 
     /**
      * get and set functions
@@ -112,12 +96,6 @@ public class Case {
         Case.size = size;
     }
 
-<<<<<<< HEAD
-    public char getIdentifier(){
-        return identifier;
-    }
-=======
->>>>>>> 5346e29480273f8ee206851d025c45f525e758ea
 
     public char getCaseNum() {
         return caseNum;
