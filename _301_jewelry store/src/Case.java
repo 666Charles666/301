@@ -2,9 +2,21 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Case {
+<<<<<<< HEAD
     //the counter to give trays' ID
     private  int counter = 0;
     private char caseNum;
+=======
+
+    /**
+     * Setting a counter facilitates CaseNum generation
+     */
+    private static int counter = 0;
+
+
+   
+
+>>>>>>> 5346e29480273f8ee206851d025c45f525e758ea
     private static char identifier = 'A';
     private static int size;
 
@@ -12,22 +24,35 @@ public class Case {
     private final List<Tray>[] trays;
     public Case(int size){
         this.size = size;
+
         this.caseNum = generateCaseNum();
         trays = new List[size];
         for (int i=0;i < size; i++){
             trays[i] = new LinkedList<>();
         }
     }
+    /**
+     * Generating numbers
+     */
+
     private char generateCaseNum() {
-            char current = identifier;
-            identifier++;
-            return current;
+        return identifier++;
     }
-    private int hushFunction(int key){
+    /**
+     * a hash function
+     */
+    public int hushFunction(int key){
         return Math.abs(key%trays.length);
     }
 
-    public int add(Tray item,String type,String lighting){
+    /**
+     * add a jewelry to store
+     * @param item
+     * @param type
+     * @param lighting
+     * @return
+     */
+    public int addJewelry(Tray item,String type,String lighting){
         this.lighting = lighting;
         this.type = type;
         int key = item.hashCode();
@@ -36,6 +61,10 @@ public class Case {
 
         return index;
     }
+
+    /**
+     * display elements in this hash
+     */
     public void displayHashTable(){
         for (int i = 0; i < trays.length; i++) {
             System.out.print("Slot " + i + ": ");
@@ -45,6 +74,7 @@ public class Case {
             System.out.println("null");
         }
     }
+<<<<<<< HEAD
     public int getNextTrayNum(){
         return ++this.counter;
     }
@@ -52,7 +82,13 @@ public class Case {
     public char getTrayIdentifier(){
        return getIdentifier();
     }
+=======
+>>>>>>> 5346e29480273f8ee206851d025c45f525e758ea
 
+    /**
+     * get and set functions
+     * @return
+     */
     public String getLighting() {
         return lighting;
     }
@@ -76,9 +112,12 @@ public class Case {
         Case.size = size;
     }
 
+<<<<<<< HEAD
     public char getIdentifier(){
         return identifier;
     }
+=======
+>>>>>>> 5346e29480273f8ee206851d025c45f525e758ea
 
     public char getCaseNum() {
         return caseNum;
@@ -86,5 +125,12 @@ public class Case {
 
     public void setCaseNum(char caseNum) {
         this.caseNum = caseNum;
+    }
+    public static char getIdentifier() {
+        return identifier;
+    }
+
+    public static void setIdentifier(char identifier) {
+        Case.identifier = identifier;
     }
 }

@@ -1,6 +1,7 @@
 import java.util.List;
 
 public class Jewellery {
+<<<<<<< HEAD
     private String description, type, targetGender, image, retailPrice;
 
     //the only identifier
@@ -62,3 +63,11 @@ public class Jewellery {
 }
 
 
+=======
+     private String description,type,targetGender,image,retailPrice;
+
+     //the only identifier
+     private static int id;
+     List<Components> components;
+}
+>>>>>>> 5346e29480273f8ee206851d025c45f525e758ea

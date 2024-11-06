@@ -12,16 +12,31 @@ public class JewelleryShop {
             cases[i] = new LinkedList<>();
         }
     }
-    public int hushFunction(int key){
+
+    /**
+     * a hash function to get address
+     * @param key
+     * @return
+     */
+    public int hashFunction(int key){
         return Math.abs(key%cases.length);
     }
 
-    public int add(Case item){
+    /**
+     * add new case in JS class
+     * @param item
+     * @return
+     */
+    public int addCase(Case item){
         int key = item.hashCode();
-        int index = hushFunction(key);
+        int index = hashFunction(key);
         cases[index].add(item);
         return index;
     }
+
+    /**
+     * display elements in hash
+     */
     public void displayHashTable(){
         for (int i = 0; i < cases.length; i++) {
             System.out.print("Slot " + i + ": ");
@@ -32,4 +47,3 @@ public class JewelleryShop {
         }
     }
 }
-

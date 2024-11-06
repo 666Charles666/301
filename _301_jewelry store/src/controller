@@ -1,0 +1,26 @@
+public class controller {
+    /**
+     * add new tray in JS class
+     * @param caseNum
+     */
+    public void addTray(int caseNum){
+
+    }
+
+    /**
+     * search jewelry
+     * @param caseNum
+     * @param trayId
+     * @param id
+     */
+    public void jewelrySearch(int caseNum,String trayId,int id){
+
+    }
+
+    /**
+     * display all of elements
+     */
+    public void displayAll(){
+
+    }
+}
