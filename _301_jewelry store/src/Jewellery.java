@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Jewelry {
+public class Jewellery {
      private String description,type,targetGender,image,retailPrice;
 
      //the only identifier
