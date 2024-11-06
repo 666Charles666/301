@@ -61,7 +61,7 @@ public class Tray {
           return null;
      }
      private String generateTrayID(Case caseInstance){
-          if (caseInstance.getIdentifier() < 'Z'){
+          if (caseInstance.getTrayIdentifier() < 'Z'){
                char current = caseInstance.getTrayIdentifier();
                return (String.valueOf(current) + caseInstance.getNextTrayNum());
           }
