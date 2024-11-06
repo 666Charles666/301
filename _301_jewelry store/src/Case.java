@@ -9,7 +9,7 @@ public class Case {
     private static int counter = 0;
 
 
-   
+
 
     private static char identifier = 'A';
     private static int size;
@@ -46,7 +46,7 @@ public class Case {
      * @param lighting
      * @return
      */
-    public int addJewelry(Tray item,String type,String lighting){
+    public int addJewellery(Tray item,String type,String lighting){
         this.lighting = lighting;
         this.type = type;
         int key = item.hashCode();
