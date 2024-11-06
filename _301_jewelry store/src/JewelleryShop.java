@@ -4,9 +4,9 @@ import java.util.List;
 /**
  * hash->hash->link
  */
-public class JewelryShop {
+public class JewelleryShop {
     private List<Case>[] cases;
-    public JewelryShop(int size){
+    public JewelleryShop(int size){
         cases =new List[size];
         for (int i = 0; i < size; i++) {
             cases[i] = new LinkedList<>();
@@ -45,30 +45,5 @@ public class JewelryShop {
             }
             System.out.println("null");
         }
-    }
-
-    /**
-     * add new tray in JS class
-     * @param caseNum
-     */
-    public void addTray(int caseNum){
-
-    }
-
-    /**
-     * search jewelry
-     * @param caseNum
-     * @param trayId
-     * @param id
-     */
-    public void jewelrySearch(int caseNum,String trayId,int id){
-
-    }
-
-    /**
-     * display all of elements
-     */
-    public void displayAll(){
-
     }
 }
