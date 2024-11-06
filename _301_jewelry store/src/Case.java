@@ -7,6 +7,11 @@ public class Case {
      * Setting a counter facilitates CaseNum generation
      */
     private static int counter = 0;
+
+
+   
+
+    private static char identifier = 'A';
     private static int size;
     private char caseNum;
     private String type , lighting;
@@ -25,7 +30,7 @@ public class Case {
      */
 
     private char generateCaseNum() {
-        return (char) ('A' + counter++);
+        return identifier++;
     }
     /**
      * a hash function
@@ -99,5 +104,11 @@ public class Case {
     public void setCaseNum(char caseNum) {
         this.caseNum = caseNum;
     }
-}
+    public static char getIdentifier() {
+        return identifier;
+    }
 
+    public static void setIdentifier(char identifier) {
+        Case.identifier = identifier;
+    }
+}
