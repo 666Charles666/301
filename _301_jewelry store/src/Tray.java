@@ -1,44 +1,73 @@
 import java.util.List;
 
 public class Tray {
-     private  char identifier;
      private String TrayID;
-     private int trayNum ;
      private String inlay , material ,color;
      private double dimension;
      private int size;
-     List<Jewelry>[] jewelries;
 
-     public Tray (String inlay,String material,String color,double dimension,int size,Case caseInstance){
-          this.size = size;
-          this.jewelries = new List[size];
-          this.inlay = inlay;
-          this.material = material;
-          this.color = color;
-          this.dimension = dimension;
+     public Tray (Tray trayInfo,Case caseInstance){
+          this.size = trayInfo.getSize();
+          this.inlay = trayInfo.getInlay();
+          this.material = trayInfo.getMaterial();
+          this.color = trayInfo.getColor();
+          this.dimension = trayInfo.getDimension();
+          TrayID = generateTrayID(caseInstance);
+     }
+     class Node {
+          private Node prev;
+          private Node next;
+          private Jewellery jewelleryInfo;
 
-          //initiate a LinkedList(the Jewelery class) in every slot int the hashTable
-          for (int i = 0; i < jewelries.length; i++) {
-               jewelries[i].add(new Jewelry());
-               this.trayNum = caseInstance.getNextTrayNum();
-               this.identifier = caseInstance.getTrayIdentifier();
-               TrayID = String.valueOf(identifier) + trayNum;
+          public Node(Jewellery jewellery) {
+               prev = null;
+               next = null;
+               this.jewelleryInfo =jewellery;
           }
-
      }
+     private Node head ;
+     private Node tail;
 
-     private char generateID(){
-          if (identifier < 'Z'){
-               char current = identifier;
-               identifier ++ ;
-               return (char)(current + trayNum);
+     //AddLast
+     public void add(Jewellery detail){
+          Node newNode = new Node(detail);
+          if (detail == null){
+               System.out.println("Wrong Input");
+               return;
           }
-          else return 'E';
+          if (head == tail){
+               head = newNode;
+               tail = newNode;
+               System.out.println("ADD SUCCESSFUL");
+          }
+          else {
+              newNode.prev = tail;
+              tail.next = newNode;
+              tail = newNode;
+              System.out.println("ADD SUCCESSFUL");
+          }
+          size ++;
      }
 
-     private int hashFunction(int key){
-          return Math.abs(key%jewelries.length);
+     //If find the Jewellery , return the Jewellery instance , else return null
+     public Jewellery searchByJewelleryID(int ID){
+          Node current = head;
+          while(current != null){
+               if (current.jewelleryInfo.getID() == ID){
+                    return current.jewelleryInfo;
+               }
+               current = current.next;
+          }
+          return null;
      }
+     private String generateTrayID(Case caseInstance){
+          if (caseInstance.getIdentifier() < 'Z'){
+               char current = caseInstance.getTrayIdentifier();
+               return (String.valueOf(current) + caseInstance.getNextTrayNum());
+          }
+          else return "E";
+     }
+
 
      public String getInlay() {
           return inlay;
@@ -73,5 +102,8 @@ public class Tray {
      }
      public String getTrayID(){
           return this.TrayID;
+     }
+     public int getSize(){
+          return this.size;
      }
 }

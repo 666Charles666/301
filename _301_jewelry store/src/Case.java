@@ -4,9 +4,10 @@ import java.util.List;
 public class Case {
     //the counter to give trays' ID
     private  int counter = 0;
+    private char caseNum;
     private static char identifier = 'A';
     private static int size;
-    private char caseNum;
+
     private String type , lighting;
     private final List<Tray>[] trays;
     public Case(int size){
@@ -47,8 +48,9 @@ public class Case {
     public int getNextTrayNum(){
         return ++this.counter;
     }
+
     public char getTrayIdentifier(){
-        return getIdentifier();
+       return getIdentifier();
     }
 
     public String getLighting() {
@@ -77,6 +79,7 @@ public class Case {
     public char getIdentifier(){
         return identifier;
     }
+
     public char getCaseNum() {
         return caseNum;
     }

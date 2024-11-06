@@ -4,9 +4,9 @@ import java.util.List;
 /**
  * hash->hash->link
  */
-public class JewelryShop {
+public class JewelleryShop {
     private List<Case>[] cases;
-    public JewelryShop(int size){
+    public JewelleryShop(int size){
         cases =new List[size];
         for (int i = 0; i < size; i++) {
             cases[i] = new LinkedList<>();
