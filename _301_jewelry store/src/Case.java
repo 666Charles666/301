@@ -107,6 +107,12 @@ public class Case {
     public static char getIdentifier() {
         return identifier;
     }
+    public  char getTrayIdentifier(){
+        return identifier;
+    }
+    public int getNextTrayNum(){
+        return ++this.counter;
+    }
 
     public static void setIdentifier(char identifier) {
         Case.identifier = identifier;
