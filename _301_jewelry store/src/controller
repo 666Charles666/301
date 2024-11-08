@@ -34,7 +34,7 @@ public class controller {
      * search jewelry
      * @param id
      */
-  public void jewelrySearch(String id){
+    public void jewelrySearch(String id){
         char caseChar = id.charAt(0);
         int trayNumber = Integer.parseInt(id.substring(1, 3));
         int jewelleryNumber = Integer.parseInt(id.substring(3));
@@ -43,13 +43,27 @@ public class controller {
             for (Case cases : caseList) {
                 if (cases.getTrayIdentifier() == caseChar) {
                     selectedCase = cases;
-                    System.out.print("In the" + selectedCase + "case");
+                    
                 }
             }
         }
-        System.out.print(",the "+ trayNumber + "tray and the" + jewelleryNumber + "th jewellery");
-        if (selectedCase == null){
+        String result = caseChar + String.format("%02d", trayNumber);
+        Tray selectedTray = null;
+        // Find the corresponding tray in the selected case's trays array
+        for (int i = 0; i < selectedCase.getSize(); i++) {
+            List<Tray> trayList = selectedCase.trays[i];  // Get the list of trays in this slot
+            for (Tray tray : trayList) {
+                if (tray.getTrayID().equals(result)){
+                    selectedTray = tray;
+                }
+            }
+        }
+        Jewellery jewellery = selectedTray.searchByJewelleryID(jewelleryNumber);
+        
+        if (selectedCase == null||selectedTray == null||jewellery == null){
             System.out.println("Jewelry with this id does not exist");
+        }else {
+            System.out.println("In the" + selectedCase + "case,the " + trayNumber + "tray, the" + jewelleryNumber + "th jewellery");
         }
     }
 
