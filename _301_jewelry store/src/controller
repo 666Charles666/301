@@ -43,7 +43,7 @@ public class controller {
             for (Case cases : caseList) {
                 if (cases.getTrayIdentifier() == caseChar) {
                     selectedCase = cases;
-                    
+
                 }
             }
         }
@@ -51,7 +51,8 @@ public class controller {
         Tray selectedTray = null;
         // Find the corresponding tray in the selected case's trays array
         for (int i = 0; i < selectedCase.getSize(); i++) {
-            List<Tray> trayList = selectedCase.trays[i];  // Get the list of trays in this slot
+            // Get the list of trays in this slot
+            List<Tray> trayList = selectedCase.trays[i];
             for (Tray tray : trayList) {
                 if (tray.getTrayID().equals(result)){
                     selectedTray = tray;
@@ -59,11 +60,23 @@ public class controller {
             }
         }
         Jewellery jewellery = selectedTray.searchByJewelleryID(jewelleryNumber);
-        
+
         if (selectedCase == null||selectedTray == null||jewellery == null){
             System.out.println("Jewelry with this id does not exist");
         }else {
             System.out.println("In the" + selectedCase + "case,the " + trayNumber + "tray, the" + jewelleryNumber + "th jewellery");
+            System.out.println(jewellery.toString());
+             if (jewellery.size() > 0) {
+                System.out.println("Components for the jewellery:");
+                for (List<Components> componentList : jewellery.components) {
+                    if (componentList != null) {
+                        for (Components component : componentList) {
+                            // Print each component's
+                            System.out.println(component.toString());
+                        }
+                    }
+                }
+            }
         }
     }
 
