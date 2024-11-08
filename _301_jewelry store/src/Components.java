@@ -39,4 +39,7 @@ public class Components {
     public void setQuality(String quality) {
         this.quality = quality;
     }
+    public String toString() {
+        return "Jewellery{name: " + name + ", description :" + description + ", quantity :"+quantity+ ", quality:"+quality;
+    }
 }
