@@ -9,8 +9,6 @@ public class Case {
     private  int counter = 0;
 
 
-
-
     private static char identifier = 'A';
     private static int size;
     private char caseNum;
@@ -30,7 +28,12 @@ public class Case {
      */
 
     private char generateCaseNum() {
-        return identifier++;
+        if (identifier <= 'Y' && identifier >= 'A'){
+            return identifier++;
+        }else {
+            System.out.println("The maximum capacity is exceeded");
+            return ' ';
+        }
     }
     /**
      * a hash function
@@ -52,7 +55,7 @@ public class Case {
         int key = item.hashCode();
         int index = hushFunction(key);
         trays[index].add(item);
-
+        size++;
         return index;
     }
 
