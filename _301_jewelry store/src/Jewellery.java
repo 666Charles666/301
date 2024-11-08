@@ -165,5 +165,7 @@ public class Jewellery {
      public void setID(int ID) {
           this.ID = ID;
      }
-
+     public String toString() {
+          return "Jewellery{description: " + description + ", type :" + type + ", targetGender :"+targetGender+ ", image:"+image + ", retailPrice :" + retailPrice;
+     }
 }
