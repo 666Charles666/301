@@ -34,10 +34,23 @@ public class controller {
      * search jewelry
      * @param id
      */
-    public void jewelrySearch(String id){
+  public void jewelrySearch(String id){
         char caseChar = id.charAt(0);
         int trayNumber = Integer.parseInt(id.substring(1, 3));
-        int jewelleryNumber = Integer.parseInt(id.substring(3)); // Jewellery编号 03
+        int jewelleryNumber = Integer.parseInt(id.substring(3));
+        Case selectedCase = null;
+        for (List<Case> caseList : shop.cases) {
+            for (Case cases : caseList) {
+                if (cases.getTrayIdentifier() == caseChar) {
+                    selectedCase = cases;
+                    System.out.print("In the" + selectedCase + "case");
+                }
+            }
+        }
+        System.out.print(",the "+ trayNumber + "tray and the" + jewelleryNumber + "th jewellery");
+        if (selectedCase == null){
+            System.out.println("Jewelry with this id does not exist");
+        }
     }
 
     /**
