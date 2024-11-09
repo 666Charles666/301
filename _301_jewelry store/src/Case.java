@@ -10,10 +10,10 @@ public class Case {
 
 
     private static char identifier = 'A';
-    private static int size;
+    private  int size;
     private char caseNum;
     private String type , lighting;
-    private final List<Tray>[] trays;
+     List<Tray>[] trays;
     public Case(int size){
         this.size = size;
 
@@ -91,12 +91,12 @@ public class Case {
     public void setType(String type) {
         this.type = type;
     }
-    public static int getSize() {
+    public  int getSize() {
         return size;
     }
 
-    public static void setSize(int size) {
-        Case.size = size;
+    public  void setSize(int size) {
+        this.size = size;
     }
 
 
