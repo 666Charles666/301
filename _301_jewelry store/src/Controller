@@ -151,8 +151,11 @@ public class Controller {
     /**
      * add case
      */
-    public void addCase(){
-
+    public void addCase(int size,String type,String lighting){
+        Case addedCase = new Case(size);
+        addedCase.setType(type);
+        addedCase.setLighting(lighting);
+        
     }
 
     /**
@@ -160,7 +163,6 @@ public class Controller {
      * @param index
      */
     public void addTray(char index){
-
 
     }
 
