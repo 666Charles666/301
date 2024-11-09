@@ -34,7 +34,7 @@ public class Controller {
      * search jewelry
      * @param id
      */
-    public void jewelrySearch(String id){
+    public Jewellery jewelrySearch(String id){
         char caseChar = id.charAt(0);
         int trayNumber = Integer.parseInt(id.substring(1, 3));
         int jewelleryNumber = Integer.parseInt(id.substring(3));
@@ -53,7 +53,7 @@ public class Controller {
         }
         if (selectedCase == null) {
             System.out.println("Case with this ID does not exist.");
-            return;
+            return null;
         }
         String result = caseChar + String.format("%02d", trayNumber);
         Tray selectedTray = null;
@@ -70,7 +70,7 @@ public class Controller {
         }
         if (selectedTray == null) {
             System.out.println("Tray with this ID does not exist.");
-            return;
+            return null;
         }
 
         Jewellery jewellery = selectedTray.searchByJewelleryID(jewelleryNumber);
@@ -91,7 +91,9 @@ public class Controller {
                     }
                 }
             }
+
         }
+        return jewellery;
     }
 
 
@@ -155,38 +157,108 @@ public class Controller {
         Case addedCase = new Case(size);
         addedCase.setType(type);
         addedCase.setLighting(lighting);
-        
+        shop.addCase(addedCase);
     }
 
     /**
      * add tray in one case
      * @param index
      */
-    public void addTray(char index){
-
+    public void addTray(char index,int size,String inlay,String material,String color,int length,int width,String type,String lighting){
+        Case selectedCase = null;
+        for (List<Case> caseList : shop.cases) {
+            for (Case cases : caseList) {
+                if (cases.getCaseNum() == index) {
+                    selectedCase = cases;
+                    break;
+                }
+            }
+            if (selectedCase != null) {
+                break;
+            }
+        }
+        if (selectedCase != null) {
+            Tray newTray = new Tray(size, inlay, material, color, length, width, selectedCase);
+            selectedCase.addJewellery(newTray, type, lighting);
+            System.out.println("Add a new tray to the index case successfully" + index);
+        } else {
+            System.out.println("this index is invalid");
+        }
     }
 
     /**
-     * add jewellery in one tray
-     * @param index
+     *
+     * @param caseChar
+     * @param trayNumber
      */
-    public void addJewellery(String index){
+    public void addJewellery(char caseChar,String trayNumber,String description,String type,String gender,String image,String price){
+        Case selectedCase = null;
+        for (List<Case> caseList : shop.cases) {
+            for (Case cases : caseList) {
+                if (cases.getTrayIdentifier() == caseChar) {
+                    selectedCase = cases;
+                    break;
+                }
 
+            }
+            if (selectedCase != null) {
+                break;
+            }
+        }
+        if (selectedCase == null) {
+            System.out.println("Case with this ID does not exist.");
+            return;
+        }
+        String result = caseChar + String.format("%02d", trayNumber);
+        Tray selectedTray = null;
+        // Find the corresponding tray in the selected case's trays array
+        for (int i = 0; i < selectedCase.getSize(); i++) {
+            // Get the list of trays in this slot
+            List<Tray> trayList = selectedCase.trays[i];
+            for (Tray tray : trayList) {
+                if (tray.getTrayID().equals(result)){
+                    selectedTray = tray;
+                    break;
+                }
+            }
+        }
+        if (selectedTray == null) {
+            System.out.println("Tray with this ID does not exist.");
+            return;
+        }
+
+        Jewellery newJewellery = new Jewellery();
+        newJewellery.setDescription(description);
+        newJewellery.setType(type);
+        newJewellery.setTargetGender(gender);
+        newJewellery.setImage(image);
+        newJewellery.setRetailPrice(price);
+
+        selectedTray.add(newJewellery);
+        System.out.println("Jewellery is success to add this Tray " + trayNumber );
     }
 
     /**
      * add components information
-     * @param casNum
-     * @param trayId
      * @param id
      */
-    public void addComponents(int casNum,String trayId,String id){
-
+    public void addComponents(String id,String componentName, String componentDescription, String componentQuantity, String componentQuality){
+        Components newComponent = new Components(componentName, componentDescription, componentQuantity, componentQuality);
+        Jewellery jewellery = jewelrySearch(id);
+        if (jewellery == null) {
+            System.out.println("Can't find Jewellery with this id.");
+            return;
+        }
+        jewellery.addComponents(newComponent);
+        System.out.println("Component added successfully to Jewellery with the id : " + jewellery.getID());
     }
     /**
      * display all of elements
      */
     public void displayAll(){
+        System.out.println("Case:");
+        shop.displayHashTable();
+        System.out.println("Tray:");
 
     }
 
