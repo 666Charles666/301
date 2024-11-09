@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class controller {
+public class Controller {
     int sizeShop = 10;
     JewelleryShop shop = new JewelleryShop(sizeShop);
 
