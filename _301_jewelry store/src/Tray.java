@@ -1,3 +1,4 @@
+
 import java.util.List;
 
 public class Tray {
@@ -5,6 +6,7 @@ public class Tray {
      private String inlay , material ,color;
      private double length,width;
      private int size;
+     private List<Jewellery> jewelleryList;
 
      public Tray (int size,String inlay,String material,String color,double length,double width,Case caseInstance){
           this.size = size;
@@ -50,7 +52,7 @@ public class Tray {
           size ++;
      }
 
-     //If find the Jewellery , return the Jewellery instance , else return null
+     // when find the Jewellery , return the Jewellery instance , else return null
      public Jewellery searchByJewelleryID(int ID){
           Node current = head;
           while(current != null){
@@ -63,11 +65,9 @@ public class Tray {
      }
      private String calculate(int num){
           if (num >= 1 && num <= 9) {
-               // 如果数字在1到9之间，返回格式化为两位数的字符串
-               return String.format("%02d", num);  // 格式化为两位数，如 01, 02, ..., 09
+               return String.format("%02d", num);
           }
-          // 如果数字大于9，直接返回数字的字符串
-          return String.valueOf(num);  // 或者 return Integer.toString(num);
+          return String.valueOf(num);
      }
      private String generateTrayID(Case caseInstance){
           if (caseInstance.getTrayIdentifier() < 'Z'){
@@ -75,6 +75,33 @@ public class Tray {
                return (String.valueOf(current) + calculate(caseInstance.getNextTrayNum()));
           }
           else return "E";
+     }
+     public boolean deleteJewellery(int jewelleryNumber) {
+          if (head == null) {
+               System.out.println("No jewellery to delete.");
+               return false;
+          }
+          Node current = head;
+          while (current != null) {
+               if (current.jewelleryInfo.getID() == jewelleryNumber) {
+                    if (current.prev != null) {
+                         current.prev.next = current.next;
+                    } else {
+                         head = current.next;
+                    }
+                    if (current.next != null) {
+                         current.next.prev = current.prev;
+                    } else {
+                         tail = current.prev;
+                    }
+                    size--;
+                    System.out.println("Jewellery deleted: " + current.jewelleryInfo);
+                    return true;
+               }
+               current = current.next;
+          }
+          System.out.println("can't find jewellery with this id");
+          return false;
      }
 
 
