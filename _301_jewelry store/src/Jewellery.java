@@ -60,7 +60,7 @@ public class Jewellery {
           size ++;
      }
 
-     //If find the Jewellery , return the Jewellery instance , else return null
+     //when find the Jewellery , return the Jewellery instance , else return null
      public Jewellery searchByID(int ID){
           Node current = head;
           while(current != null){
