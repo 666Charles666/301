@@ -6,7 +6,7 @@ public class Case {
     /**
      * Setting a counter facilitates CaseNum generation
      */
-    private  int counter = 0;
+    private static int counter = 0;
 
 
     private static char identifier = 'A';
@@ -29,7 +29,9 @@ public class Case {
 
     private char generateCaseNum() {
         if (identifier <= 'Y' && identifier >= 'A'){
-            return identifier++;
+            char currentChar = identifier;
+            identifier++;
+            return currentChar;
         }else {
             System.out.println("The maximum capacity is exceeded");
             return ' ';
@@ -110,10 +112,10 @@ public class Case {
     public static char getIdentifier() {
         return identifier;
     }
-    public  char getTrayIdentifier(){
+    public static char getTrayIdentifier(){
         return identifier;
     }
-    public int getNextTrayNum(){
+    public  int getNextTrayNum(){
         return ++this.counter;
     }
 
