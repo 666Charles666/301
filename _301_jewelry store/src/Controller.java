@@ -4,6 +4,9 @@ public class Controller {
     int sizeShop = 10;
     JewelleryShop shop = new JewelleryShop(sizeShop);
 
+
+
+
     /**
      * add new tray in JS class
      * @param caseNum
@@ -22,7 +25,7 @@ public class Controller {
         // If a matching Case is found, a new Tray is created and added to that Case
         if (selectedCase != null) {
             Tray newTray = new Tray(1,"defaultInlay","defaultMaterial","defaultColor",0,0,selectedCase);
-            selectedCase.addJewellery(newTray, "defaultType", "defaultLighting");
+            selectedCase.addTray(newTray, "defaultType", "defaultLighting");
             System.out.println("Tray added successfully to case " + caseNum);
         } else {
             System.out.println("This case Num is invalid.");
@@ -164,7 +167,7 @@ public class Controller {
      * add tray in one case
      * @param index
      */
-    public void addTray(char index,int size,String inlay,String material,String color,int length,int width,String type,String lighting){
+    public String addTray(char index,int size,String inlay,String material,String color,int length,int width,String type,String lighting){
         Case selectedCase = null;
         for (List<Case> caseList : shop.cases) {
             for (Case cases : caseList) {
@@ -179,10 +182,10 @@ public class Controller {
         }
         if (selectedCase != null) {
             Tray newTray = new Tray(size, inlay, material, color, length, width, selectedCase);
-            selectedCase.addJewellery(newTray, type, lighting);
-            System.out.println("Add a new tray to the index case successfully" + index);
+            selectedCase.addTray(newTray, type, lighting);
+            return "Add a new tray to the index case successfully" + index;
         } else {
-            System.out.println("this index is invalid");
+            return "this index is invalid";
         }
     }
 
@@ -261,5 +264,7 @@ public class Controller {
         System.out.println("Tray:");
 
     }
+
+
 
 }
