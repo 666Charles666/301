@@ -74,9 +74,9 @@ public class Tray {
      private String generateTrayID(Case caseInstance){
           if (caseInstance.getTrayIdentifier() < 'Z'){
                char current = caseInstance.getTrayIdentifier();
-               return (String.valueOf(current) + calculate(caseInstance.getNextTrayNum()));
+               return String.valueOf(current) + String.format("%02d",Integer.parseInt(calculate(caseInstance.getNextTrayNum())));
           }
-          else return "E";
+          else return "more";
      }
      public boolean deleteJewellery(int jewelleryNumber) {
           if (head == null) {
@@ -152,5 +152,9 @@ public class Tray {
      }
      public int getSize(){
           return this.size;
+     }
+
+     public static void main(String[] args) {
+
      }
 }
