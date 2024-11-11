@@ -2,7 +2,7 @@
 import java.util.List;
 
 public class Tray {
-     private String TrayID;
+     private final String TrayID;
      private String inlay , material ,color;
      private double length,width;
      private int size;
@@ -33,23 +33,25 @@ public class Tray {
 
      //AddLast
      public void add(Jewellery detail){
-          Node newNode = new Node(detail);
+
           if (detail == null){
                System.out.println("Wrong Input");
                return;
           }
-          if (head == tail){
+          Node newNode = new Node(detail);
+          if (head == null){
                head = newNode;
                tail = newNode;
-               System.out.println("ADD SUCCESSFUL");
+
           }
           else {
                newNode.prev = tail;
                tail.next = newNode;
                tail = newNode;
-               System.out.println("ADD SUCCESSFUL");
+
           }
           size ++;
+          System.out.println("ADD SUCCESSFUL");
      }
 
      // when find the Jewellery , return the Jewellery instance , else return null
