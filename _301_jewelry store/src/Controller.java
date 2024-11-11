@@ -11,7 +11,7 @@ public class Controller {
      * add new tray in JS class
      * @param caseNum
      */
-    public void addTray(int caseNum){
+    public String addTray(int caseNum){
         // Find the corresponding Case
         Case selectedCase = null;
         for (List<Case> caseList : shop.cases) {
@@ -26,9 +26,9 @@ public class Controller {
         if (selectedCase != null) {
             Tray newTray = new Tray(1,"defaultInlay","defaultMaterial","defaultColor",0,0,selectedCase);
             selectedCase.addTray(newTray, "defaultType", "defaultLighting");
-            System.out.println("Tray added successfully to case " + selectedCase.getCaseNum());
+            return ("Tray added successfully to case " + selectedCase.getCaseNum());
         } else {
-            System.out.println("This case Num is invalid.");
+            return ("This case Num is invalid.");
         }
     }
 
