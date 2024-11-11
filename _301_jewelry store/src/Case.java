@@ -9,7 +9,7 @@ public class Case {
     private static int counter = 0;
 
 
-    private static char identifier = 'A';
+    private static char identifier = '@';
     private  int size;
     private char caseNum;
     private String type , lighting;
@@ -28,9 +28,10 @@ public class Case {
      */
 
     private char generateCaseNum() {
-        if (identifier <= 'Y' && identifier >= 'A'){
-            char currentChar = identifier;
+        if (identifier <= 'Y' && identifier >= '@'){
             identifier++;
+            char currentChar = identifier;
+            
             return currentChar;
         }else {
             System.out.println("The maximum capacity is exceeded");
