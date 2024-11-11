@@ -26,7 +26,7 @@ public class Controller {
         if (selectedCase != null) {
             Tray newTray = new Tray(1,"defaultInlay","defaultMaterial","defaultColor",0,0,selectedCase);
             selectedCase.addTray(newTray, "defaultType", "defaultLighting");
-            System.out.println("Tray added successfully to case " + caseNum);
+            System.out.println("Tray added successfully to case " + selectedCase.getCaseNum());
         } else {
             System.out.println("This case Num is invalid.");
         }
@@ -161,6 +161,7 @@ public class Controller {
         addedCase.setType(type);
         addedCase.setLighting(lighting);
         shop.addCase(addedCase);
+        System.out.println("add the case successfully");
     }
 
     /**
@@ -198,13 +199,14 @@ public class Controller {
         Case selectedCase = null;
         for (List<Case> caseList : shop.cases) {
             for (Case cases : caseList) {
-                if (cases.getTrayIdentifier() == caseChar) {
+                if (cases.getCaseNum() == caseChar) {
                     selectedCase = cases;
                     break;
                 }
 
             }
             if (selectedCase != null) {
+
                 break;
             }
         }
@@ -212,17 +214,21 @@ public class Controller {
             System.out.println("Case with this ID does not exist.");
             return;
         }
-        String result = caseChar + String.format("%02d", trayNumber);
+        String result = String.valueOf(caseChar) + String.format("%02d", Integer.parseInt(trayNumber));
+        System.out.println(result);
+
         Tray selectedTray = null;
         // Find the corresponding tray in the selected case's trays array
-        for (int i = 0; i < selectedCase.getSize(); i++) {
-            // Get the list of trays in this slot
+        for (int i = 0; i < selectedCase.trays.length; i++) {
             List<Tray> trayList = selectedCase.trays[i];
             for (Tray tray : trayList) {
                 if (tray.getTrayID().equals(result)){
                     selectedTray = tray;
                     break;
                 }
+            }
+            if (selectedTray != null) {
+                break;
             }
         }
         if (selectedTray == null) {
@@ -265,6 +271,12 @@ public class Controller {
 
     }
 
+    public static void main(String[] args) {
+        Controller controller = new Controller();
+        controller.addCase(3,"wood","light");
+        controller.addTray('A');
+        controller.addJewellery('A',"01","wood","lock","mail","www","23");
+    }
 
 
 }
