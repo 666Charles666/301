@@ -6,17 +6,25 @@ import java.util.ListIterator;
 import java.util.LinkedList;
 
 public class Jewellery {
-     private String description, type, targetGender, image, retailPrice;
+     private String description, type, targetGender, image, retailPrice,id;
 
      //the only identifier
-     private static int counter = 0;
+     static int counter = 0;
      private int ID;
      List<Components>[] components = new List[5];
 
+
      public Jewellery() {
-          int current = counter;
-          this.ID = current;
+          this.ID = counter++;
           counter++;
+     }
+
+     public String getId() {
+          return id;
+     }
+
+     public void setId(String id) {
+          this.id = id;
      }
 
 
@@ -45,7 +53,7 @@ public class Jewellery {
                System.out.println("Wrong Input");
                return;
           }
-          if (head == tail){
+          if (head == null){
 
                head = newNode;
                tail = newNode;
