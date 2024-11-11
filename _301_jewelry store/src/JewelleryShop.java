@@ -5,7 +5,7 @@ import java.util.List;
  * hash->hash->link
  */
 public class JewelleryShop {
-    private List<Case>[] cases;
+    List<Case>[] cases;
     public JewelleryShop(int size){
         cases =new List[size];
         for (int i = 0; i < size; i++) {
