@@ -8,6 +8,10 @@ public class Controller {
         this.jewelleryShop = jewelleryShop;
     }
 
+    public Controller(){
+
+    }
+
     int sizeShop = 10;
     JewelleryShop shop = new JewelleryShop(sizeShop);
 
@@ -164,12 +168,12 @@ public class Controller {
      * @param type
      * @param lighting
      */
-    public void addCase(int size,String type,String lighting){
+    public String addCase(int size,String type,String lighting){
         Case addedCase = new Case(size);
         addedCase.setType(type);
         addedCase.setLighting(lighting);
         shop.addCase(addedCase);
-        System.out.println("add the case successfully");
+        return ("add the case successfully");
     }
 
     /**
