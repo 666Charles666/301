@@ -322,13 +322,13 @@ public class JavaFX_GUI extends Application{
         //out put can't be changed
         newTrayOutput.setEditable(false);
 
-        Button ADDTray = new Button();
+        Button ADDTray = new Button("ADD");
         Button addNewTrayClearButton = new Button("add one more");
 
         VBox addTrayRoot = new VBox();
         addTrayRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
         addTrayRoot.setSpacing(10); // 设置组件之间的间距
-        addTrayRoot.getChildren().addAll(ADDTray,label,newTrayInput,newTrayOutput,addNewTrayClearButton,back5);
+        addTrayRoot.getChildren().addAll(label,newTrayInput,newTrayOutput,addNewTrayClearButton,ADDTray,back5);
 
         Scene addTrayPage = new Scene(addTrayRoot,400,400);
 
@@ -613,14 +613,14 @@ public class JavaFX_GUI extends Application{
         //-------------------------------------------------
         ADDTray.setOnAction(e -> {
             String input = newTrayInput.getText();
-            int caseNum = Integer.valueOf(input);
-            newTrayOutput.appendText(controller.addTray(caseNum));
+            char input1 = input.charAt(0);
+            newTrayOutput.appendText(controller.addTray(input1));
         });
 
         //-------------------------------------------------
-        //addCasePage actions
+        //addJewellery actions
         //-------------------------------------------------
-         addNewJClearButton.setOnAction(e -> {
+        ADDJewellery.setOnAction(e -> {
              char caseID = newCaseID.getText().charAt(0);
              String trayID = newTrayID.getText();
              String description = newJDescription.getText();
@@ -629,7 +629,6 @@ public class JavaFX_GUI extends Application{
              String img = newJImage.getText();
              String price = newJPrice.getText();
              newJOutput.appendText(controller.addJewellery(caseID,trayID,description,type,gender,img,price));
-
          });
          addNewJClearButton.setOnAction(e -> {
              newCaseID.clear();
