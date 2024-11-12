@@ -329,15 +329,15 @@ public class Controller {
     /**
      * text and debug process
      */
-//    public static void main(String[] args) {
-//        Controller controller = new Controller(new JewelleryShop(10));
-//        controller.addCase(3,"wood","light");
-//        controller.addTray('A');
-//        controller.addJewellery('A',"01","wood","lock","mail","www","23");
-//        controller.displayAll();
-//        controller.deleteJewellery("A011");
-//        controller.displayAll();
-//    }
+    // public static void main(String[] args) {
+    //     Controller controller = new Controller(new JewelleryShop(10));
+    //     controller.addCase(3,"wood","light");
+    //     controller.addTray('A');
+    //     controller.addJewellery('A',"01","wood","lock","mail","www","23");
+    //     controller.displayAll();
+    //     controller.deleteJewellery("A011");
+    //     controller.displayAll();
+    // }
 
 
 }
