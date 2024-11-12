@@ -6,9 +6,11 @@ import java.util.List;
  * hash->hash->link
  */
 public class JewelleryShop {
+    //Link to case
     List<Case>[] cases;
     public JewelleryShop(int size){
         cases =new List[size];
+        //Put size in the constructor
         for (int i = 0; i < size; i++) {
             cases[i] = new LinkedList<>();
         }
@@ -38,15 +40,15 @@ public class JewelleryShop {
     /**
      * display elements in hash
      */
-    public String displayHashTable(){
-        StringBuilder sb = new StringBuilder();
+    public void displayHashTable(){
+        //Set string return value for service to GUI
+
         for (int i = 0; i < cases.length; i++) {
-            sb.append("Slot").append(i).append(":");
+            System.out.print("Slot " + i + ": ");
             for (Case item : cases[i]) {
-                sb.append(item.getCaseNum()).append("->");
+                System.out.print("Case"+item.getCaseNum()+" -> ");
             }
-            sb.append("null\n");
+            System.out.println("null");
         }
-        return sb.toString();
     }
 }
