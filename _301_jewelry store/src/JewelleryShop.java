@@ -38,13 +38,15 @@ public class JewelleryShop {
     /**
      * display elements in hash
      */
-    public void displayHashTable(){
+    public String displayHashTable(){
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < cases.length; i++) {
-            System.out.print("Slot " + i + ": ");
+            sb.append("Slot").append(i).append(":");
             for (Case item : cases[i]) {
-                System.out.print(item.getCaseNum() + " -> ");
+                sb.append(item.getCaseNum()).append("->");
             }
-            System.out.println("null");
+            sb.append("null\n");
         }
+        return sb.toString();
     }
 }
