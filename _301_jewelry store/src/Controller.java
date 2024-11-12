@@ -299,17 +299,20 @@ public class Controller {
                 }
             }
         }
-
-    public static void main(String[] args) {
-        Controller controller = new Controller();
-        controller.addCase(3,"wood","light");
-        controller.addTray('A');
-        controller.addJewellery('A',"01","wood","lock","mail","www","23");
-        controller.addComponents("A011","jewellery","stone","good","best");
-        controller.jewelrySearch("A011");
-        controller.displayAll();
-        controller.deleteJewellery("A011");
-    }
+    /**
+     * text and debug process
+     */
+//    public static void main(String[] args) {
+//        Controller controller = new Controller();
+//        controller.addCase(3,"wood","light");
+//        controller.addTray('A');
+//        controller.addJewellery('A',"01","wood","lock","mail","www","23");
+//        controller.addComponents("A011","jewellery","stone","good","best");
+//        controller.jewelrySearch("A011");
+//        controller.displayAll();
+//        controller.deleteJewellery("A011");
+//        controller.displayAll();
+//    }
 
 
 }
