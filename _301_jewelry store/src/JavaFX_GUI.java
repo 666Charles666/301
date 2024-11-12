@@ -108,7 +108,7 @@ public class JavaFX_GUI extends Application{
         mainRoot.getChildren().addAll(title,add,search,delete,display);
 
         //create a new scene,which is the home page of the window
-        Scene homePage = new Scene(mainRoot,400,600);
+        Scene homePage = new Scene(mainRoot,400,400);
 
         primaryStage.setScene(homePage);
         primaryStage.show();
@@ -158,7 +158,7 @@ public class JavaFX_GUI extends Application{
         addRoot.getChildren().addAll(addTitle,addTray,addTray1,addNewComponent,addJewellery,addCase,back1);
 
         //create a new scene,which is the home page of the window
-        Scene addPage = new Scene(addRoot,400,600);
+        Scene addPage = new Scene(addRoot,400,400);
 
         //------------------------------------------------
         //Search Function Page
@@ -181,7 +181,7 @@ public class JavaFX_GUI extends Application{
         searchRoot.getChildren().addAll(searchTitle,searchJewellery,back2);
 
         //create a new scene,which is the home page of the window
-        Scene searchPage = new Scene(searchRoot,400,600);
+        Scene searchPage = new Scene(searchRoot,400,400);
 
         //------------------------------------------------
         //Delete Function Page
@@ -205,7 +205,7 @@ public class JavaFX_GUI extends Application{
         deleteRoot.getChildren().addAll(deleteTitle,deleteJ,back3);
 
         //create a new scene,which is the home page of the window
-        Scene deletePage = new Scene(deleteRoot,400,600);
+        Scene deletePage = new Scene(deleteRoot,400,400);
 
         //------------------------------------------------
         //Delete Page
@@ -226,7 +226,7 @@ public class JavaFX_GUI extends Application{
         deletePageRoot.setSpacing(10); // 设置组件之间的间距
         deletePageRoot.getChildren().addAll(deleteLabel,deleteID,deleteResult,deleteOneMore,back12,DELETE);
 
-        Scene deletePage1 = new Scene(deletePageRoot);
+        Scene deletePage1 = new Scene(deletePageRoot,400,400);
         //------------------------------------------------
         //Search Page
         //------------------------------------------------
@@ -246,7 +246,7 @@ public class JavaFX_GUI extends Application{
         searchFRoot.setSpacing(10); // 设置组件之间的间距
         searchFRoot.getChildren().addAll(searchJ,id,searchResult,searchAgain,back11,searchExecute);
 
-        Scene searchFPage = new Scene(searchFRoot);
+        Scene searchFPage = new Scene(searchFRoot,400,400);
 
         //------------------------------------------------
         //Display Page
@@ -268,7 +268,7 @@ public class JavaFX_GUI extends Application{
         displayRoot.getChildren().addAll(displayTitle,displayAll,back4);
 
         //create a new scene,which is the home page of the window
-        Scene displayPage = new Scene(displayRoot,400,600);
+        Scene displayPage = new Scene(displayRoot,400,400);
 
         TextArea displayArea = new TextArea();
         displayArea.setEditable(false);
@@ -277,7 +277,7 @@ public class JavaFX_GUI extends Application{
         displayRoot1.setSpacing(10); // 设置组件之间的间距
         displayRoot1.getChildren().addAll(displayArea,back10);
 
-        Scene displayPage1 = new Scene(displayRoot1,400,600);
+        Scene displayPage1 = new Scene(displayRoot1,400,400);
 
         //-------------------------------------------------------
         //Add New Tray Page   NO.1
@@ -298,7 +298,7 @@ public class JavaFX_GUI extends Application{
         addTrayRoot.setSpacing(10); // 设置组件之间的间距
         addTrayRoot.getChildren().addAll(label,newTrayInput,newTrayOutput,addNewTrayClearButton,back5);
 
-        Scene addTrayPage = new Scene(addTrayRoot,400,600);
+        Scene addTrayPage = new Scene(addTrayRoot,400,400);
 
         //-----------------------------------------------------------
         //Add New Tray Page No.2 user can define the tray by themselves
@@ -344,7 +344,7 @@ public class JavaFX_GUI extends Application{
         addTrayRoot1.setSpacing(10); // 设置组件之间的间距
         addTrayRoot1.getChildren().addAll(newTrayLabel,newTrayCaseNum,newTraySize,newTrayInlay,newTrayMaterial,newTrayColor,newTrayLength,newTrayWidth,newTrayLighting,newTrayType,addNewTrayClearButton1,newTrayOutput1,back6);
 
-        Scene addTrayPage1 = new Scene(addTrayRoot1,400,600);
+        Scene addTrayPage1 = new Scene(addTrayRoot1,400,400);
 
         //------------------------------------------------
         //Add CasePage
@@ -372,7 +372,7 @@ public class JavaFX_GUI extends Application{
         addCaseRoot.setSpacing(10); // 设置组件之间的间距
         addCaseRoot.getChildren().addAll(newCaseLabel,newCaseSize,newCaseType,newCaseLighting,addNewCaseClearButton,addCase1,back7);
 
-        Scene addNewCasePage = new Scene(addCaseRoot,400,600);
+        Scene addNewCasePage = new Scene(addCaseRoot,400,400);
 
         //------------------------------------------------
         //Add Jewellery Page
@@ -412,7 +412,7 @@ public class JavaFX_GUI extends Application{
         addJRoot.setSpacing(10); // 设置组件之间的间距
         addJRoot.getChildren().addAll(newJ,newCaseID,newTrayID,newJDescription,newJType,newJGender,newJImage,newJPrice,addNewJClearButton,newJOutput,ADDJewellery,back8);
 
-        Scene addJPage = new Scene(addJRoot,400,600);
+        Scene addJPage = new Scene(addJRoot,400,400);
 
         //------------------------------------------------
         //Add ComponentPage
@@ -447,7 +447,7 @@ public class JavaFX_GUI extends Application{
         addComRoot.setSpacing(10); // 设置组件之间的间距
         addComRoot.getChildren().addAll(newComLabel,newComId,newComName,newComDes,newComQua,newComQuan,addNewComClearButton,newComOutput,addCom,back9);
 
-        Scene addNewComPage = new Scene(addComRoot,400,600);
+        Scene addNewComPage = new Scene(addComRoot,400,400);
         //------------------------------------------------
         //Add listeners
 
@@ -684,7 +684,7 @@ public class JavaFX_GUI extends Application{
     }
     private void loadController() {
         Controller newController =(Controller)controller.load();
-        this.controller = newController; 
+        this.controller = newController;
     }
 
 }
