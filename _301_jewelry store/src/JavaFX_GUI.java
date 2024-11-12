@@ -117,7 +117,7 @@ public class JavaFX_GUI extends Application{
 
 
         //add the components to the manager
-        mainRoot.getChildren().addAll(title,add,search,delete,display);
+        mainRoot.getChildren().addAll(title,add,search,delete,display,save,load);
 
         //create a new scene,which is the home page of the window
         Scene homePage = new Scene(mainRoot,400,400);
