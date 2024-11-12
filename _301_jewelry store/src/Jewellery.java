@@ -11,6 +11,7 @@ public class Jewellery {
      //the only identifier
      static int counter = 1;
      private int ID;
+     private int size;
      List<Components>[] components = new List[3];
 
 
@@ -18,14 +19,6 @@ public class Jewellery {
           this.ID = counter++;
           counter++;
      }
-
-
-
-
-     private int size;
-
-
-
 
      public void addComponents(Components component) {
           if (component == null) {
