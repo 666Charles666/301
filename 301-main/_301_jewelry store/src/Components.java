@@ -1,15 +1,15 @@
 public class Components {
     private String name,    description,    quantity,   quality;
-    //constructor
-    public Components(String name,String description,String quantity,String quality){
+
+    public Components(String name, String description, String quantity, String quality) {
         this.name = name;
         this.description = description;
         this.quantity = quantity;
         this.quality = quality;
     }
-    //getter and setter method
-    public String getName(){
-    return name;
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
@@ -24,14 +24,6 @@ public class Components {
         this.description = description;
     }
 
-    public String getQuality() {
-        return quality;
-    }
-
-    public void setQuality(String quality) {
-        this.quality = quality;
-    }
-
     public String getQuantity() {
         return quantity;
     }
@@ -39,5 +31,15 @@ public class Components {
     public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
-}
 
+    public String getQuality() {
+        return quality;
+    }
+
+    public void setQuality(String quality) {
+        this.quality = quality;
+    }
+    public String toString() {
+        return "Jewellery{name: " + name + ", description :" + description + ", quantity :"+quantity+ ", quality:"+quality;
+    }
+}
