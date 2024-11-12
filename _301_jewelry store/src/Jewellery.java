@@ -9,9 +9,9 @@ public class Jewellery {
      private String description, type, targetGender, image, retailPrice,id;
 
      //the only identifier
-     static int counter = 0;
+     static int counter = 1;
      private int ID;
-     List<Components>[] components = new List[5];
+     List<Components>[] components = new List[3];
 
 
      public Jewellery() {
@@ -19,87 +19,14 @@ public class Jewellery {
           counter++;
      }
 
-     public String getId() {
-          return id;
-     }
-
-     public void setId(String id) {
-          this.id = id;
-     }
-
-
-     class Node {
-          private Node prev;
-          private Node next;
-          private Jewellery details;
-
-          public Node(Jewellery details) {
-               prev = null;
-               next = null;
-               this.details = details;
-          }
-     }
 
 
 
-     private Node head ;
-     private Node tail;
      private int size;
 
-     //AddFirst
-     public void add(Jewellery detail){
-          Node newNode = new Node(detail);
-          if (detail == null){
-               System.out.println("Wrong Input");
-               return;
-          }
-          if (head == null){
 
-               head = newNode;
-               tail = newNode;
-               System.out.println("ADD SUCCESSFUL");
-          }
-          else {
-               newNode.next = head ;
-               head.prev = newNode;
-               head = newNode;
-               System.out.println("ADD SUCCESSFUL");
-          }
-          size ++;
-     }
 
-     //when find the Jewellery , return the Jewellery instance , else return null
-     public Jewellery searchByID(int ID){
-          Node current = head;
-          while(current != null){
-               if (current.details.getID() == ID){
-                    return current.details;
-               }
-               current = current.next;
-          }
-          return null;
-     }
-     public boolean delete(int ID) {
-          Node current = head;
-          while (current != null) {
-               if (current.details.getID() == ID) {
-                    if (current.prev != null) {
-                         current.prev.next = current.next;
-                    } else {
-                         head = current.next;
-                    }
-                    if (current.next != null) {
-                         current.next.prev = current.prev;
-                    } else {
-                         tail = current.prev;
-                    }
-                    size--;
-                    return true;
-               }
-               current = current.next;
-          }
-          return false;
-     }
+
      public void addComponents(Components component) {
           if (component == null) {
                System.out.println("wrong");
@@ -174,6 +101,6 @@ public class Jewellery {
           this.ID = ID;
      }
      public String toString() {
-          return "Jewellery{description: " + description + ", type :" + type + ", targetGender :"+targetGender+ ", image:"+image + ", retailPrice :" + retailPrice;
+          return "Jewellery{description: " + description + ", type :" + type + ", targetGender :"+targetGender+ ", image:"+image + ", retailPrice :" + retailPrice + "}";
      }
 }
