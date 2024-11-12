@@ -8,6 +8,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 public class JavaFX_GUI extends Application{
 
     public JavaFX_GUI(Controller controller) {
@@ -28,73 +31,82 @@ public class JavaFX_GUI extends Application{
         back2.setLayoutY(400);
         back2.setLayoutX(300);
         Button back3 = new Button("Back");
-        back3.setLayoutY(400);
+      back3.setLayoutY(400);
         back3.setLayoutX(300);
         Button back4 = new Button("Back");
+
         back4.setLayoutY(400);
         back4.setLayoutX(300);
         Button back5 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back5.setLayoutY(400);
+        back5.setLayoutX(300);
         Button back6 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back6.setLayoutY(400);
+        back6.setLayoutX(300);
         Button back7 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back7.setLayoutY(400);
+        back7.setLayoutX(300);
         Button back8 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back8.setLayoutY(400);
+        back8.setLayoutX(300);
         Button back9 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back9.setLayoutY(400);
+        back9.setLayoutX(300);
         Button back10 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back10.setLayoutY(400);
+        back10.setLayoutX(300);
         Button back11 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back11.setLayoutY(400);
+        back11.setLayoutX(300);
         Button back12 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
-        Button back13 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
-        Button back14 = new Button("Back");
-        back4.setLayoutY(400);
-        back4.setLayoutX(300);
+
+        back12.setLayoutY(400);
+        back12.setLayoutX(300);
         //------------------------------------------------
         //Home Page
         //------------------------------------------------
         Label title = new Label("Welcome to our jewellery shop !");
-        title.setStyle("-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;");
+        title.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         title.setLayoutX(200);
         title.setLayoutY(100);
 
         // Add function button
         Button add = new Button("Add Something");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
         // Search function button
         Button search = new Button("Search Something");
+
         search.setLayoutX(200);
         search.setLayoutY(300);
 
         //delete function button
         Button delete = new Button("Delete Something");
+
         delete.setLayoutX(200);
         delete.setLayoutY(350);
 
         Button display = new Button("display all stuff");
+
         display.setLayoutX(200);
         display.setLayoutY(400);
 
         Button save = new Button("SAVE");
+
         display.setLayoutX(200);
         display.setLayoutY(400);
 
         Button load = new Button("LOAD");
+
         display.setLayoutX(200);
         display.setLayoutY(400);
 
@@ -109,6 +121,7 @@ public class JavaFX_GUI extends Application{
 
         //create a new scene,which is the home page of the window
         Scene homePage = new Scene(mainRoot,400,400);
+
 
         primaryStage.setScene(homePage);
         primaryStage.show();
@@ -125,26 +138,32 @@ public class JavaFX_GUI extends Application{
 
 
         Label addTitle  = new Label("ADD");
+        addTitle.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         title.setLayoutX(200);
         title.setLayoutY(100);
 
         Button addCase = new Button("Add case");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
-        Button addTray = new Button("Add NewTray 1");
+        Button addTray = new Button("Add NewTray ");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
-        Button addTray1 = new Button("Add NewTray 2");
+        Button addTray1 = new Button("Add NewTray(detailed)");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
         Button addNewComponent = new Button("Add new component");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
         Button addJewellery = new Button("Add jewellery");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
@@ -166,10 +185,12 @@ public class JavaFX_GUI extends Application{
 
 
         Label searchTitle  = new Label("SEARCH");
+        searchTitle.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         title.setLayoutX(200);
         title.setLayoutY(100);
 
         Button searchJewellery = new Button("SEARCH  Jewellery");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
@@ -183,16 +204,20 @@ public class JavaFX_GUI extends Application{
         //create a new scene,which is the home page of the window
         Scene searchPage = new Scene(searchRoot,400,400);
 
+
+
         //------------------------------------------------
         //Delete Function Page
         //------------------------------------------------
 
 
         Label deleteTitle  = new Label("DELETE");
+        deleteTitle.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         title.setLayoutX(200);
         title.setLayoutY(100);
 
         Button deleteJ = new Button("DELETE Jewellery");
+
         add.setLayoutX(200);
         add.setLayoutY(250);
 
@@ -211,15 +236,18 @@ public class JavaFX_GUI extends Application{
         //Delete Page
         //------------------------------------------------
         Label deleteLabel = new Label("Delete a jewellery");
-
+        deleteLabel.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         TextField deleteID = new TextField();
+        deleteID.setPromptText("please input the jewellery id");
 
         TextArea deleteResult = new TextArea();
         deleteResult.setEditable(false);
 
         Button DELETE = new Button("DELETE");
 
+
         Button deleteOneMore = new Button("Delete one more jewellery");
+
 
         VBox deletePageRoot = new VBox();
         deletePageRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
@@ -227,19 +255,21 @@ public class JavaFX_GUI extends Application{
         deletePageRoot.getChildren().addAll(deleteLabel,deleteID,deleteResult,deleteOneMore,back12,DELETE);
 
         Scene deletePage1 = new Scene(deletePageRoot,400,400);
+
         //------------------------------------------------
         //Search Page
         //------------------------------------------------
         Label searchJ = new Label();
-
+        searchJ.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         TextField id = new TextField();
-
+        deleteID.setPromptText("please input the jewellery id");
         TextArea searchResult = new TextArea();
         searchResult.setEditable(false);
 
 
         Button searchExecute = new Button();
         Button searchAgain = new Button();
+
 
         VBox searchFRoot = new VBox();
         searchFRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
@@ -252,12 +282,13 @@ public class JavaFX_GUI extends Application{
         //Display Page
         //------------------------------------------------
         Label displayTitle  = new Label("DISPLAY");
+        displayTitle.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         title.setLayoutX(200);
         title.setLayoutY(100);
 
         Button displayAll = new Button("DISPLAY all");
-        add.setLayoutX(200);
-        add.setLayoutY(250);
+        displayAll.setLayoutX(200);
+        displayAll.setLayoutY(250);
 
 
         //create a new component manager
@@ -283,20 +314,21 @@ public class JavaFX_GUI extends Application{
         //Add New Tray Page   NO.1
         //-------------------------------------------------------
         Label label = new Label("Add a new tray into the case");
+        label.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         TextField newTrayInput = new TextField();
         newTrayInput.setPromptText("case Num,such as 'A', 'B'...");
 
         TextArea newTrayOutput = new TextArea();
-
         //out put can't be changed
         newTrayOutput.setEditable(false);
 
+        Button ADDTray = new Button();
         Button addNewTrayClearButton = new Button("add one more");
 
         VBox addTrayRoot = new VBox();
         addTrayRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
         addTrayRoot.setSpacing(10); // 设置组件之间的间距
-        addTrayRoot.getChildren().addAll(label,newTrayInput,newTrayOutput,addNewTrayClearButton,back5);
+        addTrayRoot.getChildren().addAll(ADDTray,label,newTrayInput,newTrayOutput,addNewTrayClearButton,back5);
 
         Scene addTrayPage = new Scene(addTrayRoot,400,400);
 
@@ -304,7 +336,7 @@ public class JavaFX_GUI extends Application{
         //Add New Tray Page No.2 user can define the tray by themselves
         //------------------------------------------------
         Label newTrayLabel = new Label("Add a new tray into the case");
-
+        newTrayLabel.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         TextField newTrayCaseNum = new TextField();
         newTrayCaseNum.setPromptText("case Num,such as 'A', 'B'...");
 
@@ -342,7 +374,7 @@ public class JavaFX_GUI extends Application{
         VBox addTrayRoot1 = new VBox();
         addTrayRoot1.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
         addTrayRoot1.setSpacing(10); // 设置组件之间的间距
-        addTrayRoot1.getChildren().addAll(newTrayLabel,newTrayCaseNum,newTraySize,newTrayInlay,newTrayMaterial,newTrayColor,newTrayLength,newTrayWidth,newTrayLighting,newTrayType,addNewTrayClearButton1,newTrayOutput1,back6);
+        addTrayRoot1.getChildren().addAll(newTrayLabel,newTrayCaseNum,newTraySize,newTrayInlay,newTrayMaterial,newTrayColor,newTrayLength,newTrayWidth,newTrayLighting,newTrayType,addNewTrayClearButton1,newTrayOutput1,ADD,back6);
 
         Scene addTrayPage1 = new Scene(addTrayRoot1,400,400);
 
@@ -350,15 +382,15 @@ public class JavaFX_GUI extends Application{
         //Add CasePage
         //------------------------------------------------
         Label newCaseLabel = new Label("Add a new case");
-
+        newCaseLabel.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         TextField newCaseSize = new TextField();
-        newTraySize.setPromptText("case size");
+        newCaseSize.setPromptText("case size");
 
         TextField newCaseType = new TextField();
-        newTrayType.setPromptText("type,such as wall-mounted");
+        newCaseType.setPromptText("type,such as wall-mounted");
 
         TextField newCaseLighting = new TextField();
-        newTrayLighting.setPromptText("lighting");
+        newCaseLighting.setPromptText("lighting");
 
         Button addNewCaseClearButton = new Button("add one more");
 
@@ -370,7 +402,7 @@ public class JavaFX_GUI extends Application{
         VBox addCaseRoot = new VBox();
         addCaseRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
         addCaseRoot.setSpacing(10); // 设置组件之间的间距
-        addCaseRoot.getChildren().addAll(newCaseLabel,newCaseSize,newCaseType,newCaseLighting,addNewCaseClearButton,addCase1,back7);
+        addCaseRoot.getChildren().addAll(newCaseLabel,newCaseSize,newCaseType,newCaseLighting,addNewCaseClearButton,addCase1,back7,newCaseOutput);
 
         Scene addNewCasePage = new Scene(addCaseRoot,400,400);
 
@@ -378,27 +410,27 @@ public class JavaFX_GUI extends Application{
         //Add Jewellery Page
         //------------------------------------------------
         Label newJ = new Label("Add a new Jewellery into the tray");
-
+        newJ.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         TextField newCaseID = new TextField();
-        newTrayCaseNum.setPromptText("case Num,such as 'A', 'B'...");
+        newCaseID.setPromptText("case Num,such as 'A', 'B'...");
 
         TextField newTrayID = new TextField();
-        newTraySize.setPromptText("tray ID");
+        newTrayID.setPromptText("tray ID");
 
         TextField newJDescription = new TextField();
-        newTrayInlay.setPromptText("description");
+        newJDescription.setPromptText("description");
 
         TextField newJType = new TextField();
-        newTrayType.setPromptText("type");
+        newJType.setPromptText("type");
 
         TextField newJGender = new TextField();
-        newTrayLighting.setPromptText("lighting");
+        newJGender.setPromptText("lighting");
 
         TextField newJImage = new TextField();
-        newTrayLighting.setPromptText("img url");
+        newJImage.setPromptText("img url");
 
         TextField newJPrice = new TextField();
-        newTrayLighting.setPromptText("price");
+        newJPrice.setPromptText("price");
 
         Button addNewJClearButton = new Button("add one more");
 
@@ -419,21 +451,21 @@ public class JavaFX_GUI extends Application{
         //------------------------------------------------
 
         Label newComLabel = new Label("Add a new case");
-
+        newComLabel.setStyle("-fx-font-size: 20;\n" + "-fx-font-weight: bold;\n"+"-fx-text-fill: #333;");
         TextField newComId = new TextField();
-        newTraySize.setPromptText("jewellery id");
+        newComId.setPromptText("jewellery id");
 
         TextField newComName = new TextField();
-        newTrayType.setPromptText("component name");
+        newComName.setPromptText("component name");
 
         TextField newComDes = new TextField();
-        newTrayLighting.setPromptText("component description");
+        newComDes.setPromptText("component description");
 
         TextField newComQuan = new TextField();
-        newTrayLighting.setPromptText("component quantity");
+        newComQuan.setPromptText("component quantity");
 
         TextField newComQua = new TextField();
-        newTrayLighting.setPromptText("component quality");
+        newComQua.setPromptText("component quality");
 
         Button addNewComClearButton = new Button("add one more");
 
@@ -448,6 +480,7 @@ public class JavaFX_GUI extends Application{
         addComRoot.getChildren().addAll(newComLabel,newComId,newComName,newComDes,newComQua,newComQuan,addNewComClearButton,newComOutput,addCom,back9);
 
         Scene addNewComPage = new Scene(addComRoot,400,400);
+
         //------------------------------------------------
         //Add listeners
 
@@ -510,7 +543,16 @@ public class JavaFX_GUI extends Application{
         //-------------------------------------------------
         display.setOnAction(e -> {
             primaryStage.setScene(displayPage1);
-            displayArea.appendText(controller.displayAll());
+
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            PrintStream originalOut = System.out;
+            System.setOut(new PrintStream(outputStream));
+
+            controller.displayAll();
+
+            System.setOut(originalOut);
+
+            displayArea.appendText(outputStream.toString());
         });
 
 
@@ -569,7 +611,7 @@ public class JavaFX_GUI extends Application{
         //-------------------------------------------------
         //addTrayPage actions
         //-------------------------------------------------
-        newTrayInput.setOnAction(e -> {
+        ADDTray.setOnAction(e -> {
             String input = newTrayInput.getText();
             int caseNum = Integer.valueOf(input);
             newTrayOutput.appendText(controller.addTray(caseNum));
