@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -9,13 +10,16 @@ import javafx.stage.Stage;
 
 public class JavaFX_GUI extends Application{
 
-    public static void main(String[] args) {
-        Application.launch(args);
+    public JavaFX_GUI(Controller controller) {
+        this.controller = controller;
+    }
+    public JavaFX_GUI() {
     }
     Controller controller;
     Jewellery jewellery;
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Controller controller = new Controller();
         //button to return to home page
         Button back1 = new Button("Back");
         back1.setLayoutY(400);
@@ -63,6 +67,7 @@ public class JavaFX_GUI extends Application{
         //Home Page
         //------------------------------------------------
         Label title = new Label("Welcome to our jewellery shop !");
+        title.setStyle("-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;");
         title.setLayoutX(200);
         title.setLayoutY(100);
 
@@ -85,8 +90,20 @@ public class JavaFX_GUI extends Application{
         display.setLayoutX(200);
         display.setLayoutY(400);
 
+        Button save = new Button("SAVE");
+        display.setLayoutX(200);
+        display.setLayoutY(400);
+
+        Button load = new Button("LOAD");
+        display.setLayoutX(200);
+        display.setLayoutY(400);
+
         //create a new component manager
         VBox mainRoot = new VBox();
+        mainRoot.setAlignment(Pos.CENTER);
+        mainRoot.setSpacing(10);
+
+
         //add the components to the manager
         mainRoot.getChildren().addAll(title,add,search,delete,display);
 
@@ -96,12 +113,12 @@ public class JavaFX_GUI extends Application{
         primaryStage.setScene(homePage);
         primaryStage.show();
 
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
         //------------------------------------------------
         //Add Function Page
         //------------------------------------------------
@@ -135,6 +152,8 @@ public class JavaFX_GUI extends Application{
 
         //create a new component manager
         VBox addRoot = new VBox();
+        addRoot.setAlignment(Pos.CENTER);
+        addRoot.setSpacing(10);
         //add the components to the manager
         addRoot.getChildren().addAll(addTitle,addTray,addTray1,addNewComponent,addJewellery,addCase,back1);
 
@@ -156,6 +175,8 @@ public class JavaFX_GUI extends Application{
 
         //create a new component manager
         VBox searchRoot = new VBox();
+        searchRoot.setAlignment(Pos.CENTER);
+        searchRoot.setSpacing(10);
         //add the components to the manager
         searchRoot.getChildren().addAll(searchTitle,searchJewellery,back2);
 
@@ -175,15 +196,17 @@ public class JavaFX_GUI extends Application{
         add.setLayoutX(200);
         add.setLayoutY(250);
 
-        
+
         //create a new component manager
         VBox deleteRoot = new VBox();
+        deleteRoot.setAlignment(Pos.CENTER);
+        deleteRoot.setSpacing(10);
         //add the components to the manager
         deleteRoot.getChildren().addAll(deleteTitle,deleteJ,back3);
 
         //create a new scene,which is the home page of the window
         Scene deletePage = new Scene(deleteRoot,400,600);
-        
+
         //------------------------------------------------
         //Delete Page
         //------------------------------------------------
@@ -195,10 +218,12 @@ public class JavaFX_GUI extends Application{
         deleteResult.setEditable(false);
 
         Button DELETE = new Button("DELETE");
-        
+
         Button deleteOneMore = new Button("Delete one more jewellery");
 
         VBox deletePageRoot = new VBox();
+        deletePageRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        deletePageRoot.setSpacing(10); // 设置组件之间的间距
         deletePageRoot.getChildren().addAll(deleteLabel,deleteID,deleteResult,deleteOneMore,back12,DELETE);
 
         Scene deletePage1 = new Scene(deletePageRoot);
@@ -217,7 +242,8 @@ public class JavaFX_GUI extends Application{
         Button searchAgain = new Button();
 
         VBox searchFRoot = new VBox();
-
+        searchFRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        searchFRoot.setSpacing(10); // 设置组件之间的间距
         searchFRoot.getChildren().addAll(searchJ,id,searchResult,searchAgain,back11,searchExecute);
 
         Scene searchFPage = new Scene(searchFRoot);
@@ -236,6 +262,8 @@ public class JavaFX_GUI extends Application{
 
         //create a new component manager
         VBox displayRoot = new VBox();
+        displayRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        displayRoot.setSpacing(10); // 设置组件之间的间距
         //add the components to the manager
         displayRoot.getChildren().addAll(displayTitle,displayAll,back4);
 
@@ -245,6 +273,8 @@ public class JavaFX_GUI extends Application{
         TextArea displayArea = new TextArea();
         displayArea.setEditable(false);
         VBox displayRoot1 = new VBox();
+        displayRoot1.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        displayRoot1.setSpacing(10); // 设置组件之间的间距
         displayRoot1.getChildren().addAll(displayArea,back10);
 
         Scene displayPage1 = new Scene(displayRoot1,400,600);
@@ -264,7 +294,8 @@ public class JavaFX_GUI extends Application{
         Button addNewTrayClearButton = new Button("add one more");
 
         VBox addTrayRoot = new VBox();
-
+        addTrayRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        addTrayRoot.setSpacing(10); // 设置组件之间的间距
         addTrayRoot.getChildren().addAll(label,newTrayInput,newTrayOutput,addNewTrayClearButton,back5);
 
         Scene addTrayPage = new Scene(addTrayRoot,400,600);
@@ -309,6 +340,8 @@ public class JavaFX_GUI extends Application{
         Button ADD = new Button("ADD");
 
         VBox addTrayRoot1 = new VBox();
+        addTrayRoot1.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        addTrayRoot1.setSpacing(10); // 设置组件之间的间距
         addTrayRoot1.getChildren().addAll(newTrayLabel,newTrayCaseNum,newTraySize,newTrayInlay,newTrayMaterial,newTrayColor,newTrayLength,newTrayWidth,newTrayLighting,newTrayType,addNewTrayClearButton1,newTrayOutput1,back6);
 
         Scene addTrayPage1 = new Scene(addTrayRoot1,400,600);
@@ -335,6 +368,8 @@ public class JavaFX_GUI extends Application{
         Button addCase1= new Button("ADD");
 
         VBox addCaseRoot = new VBox();
+        addCaseRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        addCaseRoot.setSpacing(10); // 设置组件之间的间距
         addCaseRoot.getChildren().addAll(newCaseLabel,newCaseSize,newCaseType,newCaseLighting,addNewCaseClearButton,addCase1,back7);
 
         Scene addNewCasePage = new Scene(addCaseRoot,400,600);
@@ -373,6 +408,8 @@ public class JavaFX_GUI extends Application{
         Button ADDJewellery = new Button("ADD");
 
         VBox addJRoot = new VBox();
+        addJRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        addJRoot.setSpacing(10); // 设置组件之间的间距
         addJRoot.getChildren().addAll(newJ,newCaseID,newTrayID,newJDescription,newJType,newJGender,newJImage,newJPrice,addNewJClearButton,newJOutput,ADDJewellery,back8);
 
         Scene addJPage = new Scene(addJRoot,400,600);
@@ -406,6 +443,8 @@ public class JavaFX_GUI extends Application{
         Button addCom= new Button("ADD");
 
         VBox addComRoot = new VBox();
+        addComRoot.setAlignment(Pos.CENTER); // 设置VBox中的内容居中
+        addComRoot.setSpacing(10); // 设置组件之间的间距
         addComRoot.getChildren().addAll(newComLabel,newComId,newComName,newComDes,newComQua,newComQuan,addNewComClearButton,newComOutput,addCom,back9);
 
         Scene addNewComPage = new Scene(addComRoot,400,600);
@@ -454,7 +493,7 @@ public class JavaFX_GUI extends Application{
         //Delete Page actions
         //-------------------------------------------------
         DELETE.setOnAction(e -> {
-            
+
            boolean BooleanDeleteResult =  controller.deleteJewellery(deleteID.getText());
            if (BooleanDeleteResult){
                deleteResult.appendText("delete successful");
@@ -473,9 +512,9 @@ public class JavaFX_GUI extends Application{
             primaryStage.setScene(displayPage1);
             displayArea.appendText(controller.displayAll());
         });
-        
-        
-        
+
+
+
         //-------------------------------------------------
         //Search Page actions
         //-------------------------------------------------
@@ -588,8 +627,21 @@ public class JavaFX_GUI extends Application{
             String type = newTrayType.getText();
             String lighting = newTrayLighting.getText();
             newTrayOutput1.appendText(controller.addTray(caseNum,size,inlay,material,color,length,width,type,lighting));
-
         });
+        //-------------------------------------------------
+        //SAVE button actions
+        //-------------------------------------------------
+        save.setOnAction(e -> {
+            controller.save();
+        });
+
+        //-------------------------------------------------
+        //LOAD button actions
+        //-------------------------------------------------
+        load.setOnAction(e -> {loadController();});
+
+
+
         //-------------------------------------------------
         //back button actions
         //-------------------------------------------------
@@ -630,4 +682,9 @@ public class JavaFX_GUI extends Application{
             primaryStage.setScene(deletePage);
         });
     }
+    private void loadController() {
+        Controller newController =(Controller)controller.load();
+        this.controller = newController; 
+    }
+
 }
