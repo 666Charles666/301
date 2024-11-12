@@ -71,7 +71,8 @@ public class Case {
         for (int i = 0; i < trays.length; i++) {
             System.out.print("Slot " + i + ": ");
             for (Tray item : trays[i]) {
-                System.out.print(item + " -> ");
+                //Solved the problem of garbled output code
+                System.out.print("tray"+ item.getTrayID() + " -> ");
             }
             System.out.println("null");
         }
