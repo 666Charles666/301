@@ -2,12 +2,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
+
+    //create different environment to test
 public class JewelleryTest {
 
     private Jewellery jewellery;
     private Components component1;
     private Components component2;
 
+
+    //set up the test environment before every begining of each test
     @BeforeEach
     public void setUp() {
 
@@ -17,7 +21,8 @@ public class JewelleryTest {
 
     }
 
-
+    //test setting of details
+    //set right
     @Test
     public void testJewelleryDetails() {
 
@@ -34,7 +39,8 @@ public class JewelleryTest {
         assertEquals("www.gp.com", jewellery.getImage());
         assertEquals("10000000$", jewellery.getRetailPrice());
     }
-
+    //test the generation of ID
+    //make sure the id of new jewellery and other jewellery is not equal so the id is unique
     @Test
     public void testIDGeneration() {
 

@@ -4,13 +4,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
 
-
+    //create different environment to test
 public class CaseTest {
 
     private Case case1;
     private Tray tray1;
     private Tray tray2;
 
+    //set up the test environment before every begining of each test
     @BeforeEach
     public void setUp() {
 
@@ -19,7 +20,8 @@ public class CaseTest {
         tray2 = new Tray(10,"dim","blue","blue",200,200,case1);
 
     }
-
+    //test generate case number
+    // it should be a uppercase letters between A and Z
     @Test
 
     public void testGenerateCaseNum() {
@@ -28,7 +30,9 @@ public class CaseTest {
         assertTrue(caseNum >= 'A' && caseNum <= 'Z');
     }
 
-
+    //test add tray
+    //when add a tray to a case ,the index generate should be in a valid range
+    //the tray description should be the same we put in
     @Test
 
     public void testAddTray() {
@@ -44,6 +48,8 @@ public class CaseTest {
         assertEquals("wall-mounted", case1.getType());
         assertEquals("unlit", case1.getLighting());
     }
+    //test the display of hashtable
+    //give a valid environment
 
     @Test
 
@@ -52,11 +58,12 @@ public class CaseTest {
         case1.addTray(tray1, "wall-mounted", "lit");
         case1.addTray(tray2, "floor-mounted", "unlit");
 
-
+    //during the porcess whether there is no error occur or fail the test
         assertDoesNotThrow(() -> case1.displayHashTable());
 
     }
-
+    //test the hashtable
+    //the index shoule in valid range
     @Test
 
     public void testHashFunction() {
@@ -67,7 +74,7 @@ public class CaseTest {
         assertTrue(index >= 0 && index < case1.getSize());
     }
 
-
+    //test the setting of description
     @Test
 
     public void testSetAndGetLightingAndType() {
@@ -79,7 +86,7 @@ public class CaseTest {
         assertEquals("wall-mounted", case1.getType());
     }
 
-
+   //test geting and setting size
     @Test
 
     public void testSetAndGetSize() {

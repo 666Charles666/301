@@ -3,7 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
 
-
+//create different environment to test
 class ControllerTest {
     Controller controller1 ;
     Controller controller2;
@@ -14,7 +14,7 @@ class ControllerTest {
 
 
 
-
+//set up the test environment before every begining of each test
     @BeforeEach
     public void setUp() {
 
@@ -32,6 +32,7 @@ class ControllerTest {
 
 
     }
+    //cleaning the cache after every test
     @AfterEach
     public void tearDown() {
         controller1 = null;
@@ -42,7 +43,8 @@ class ControllerTest {
         jewelleryShop2 = null;
         jewelleryShop3 = null;
     }
-
+//test addtray
+// set 3 environment to simulate ,including invalid situation
     @Test
     public void testAddTrayWithCaseNum() {
         String output1 = controller1.addTray('A');
@@ -56,6 +58,9 @@ class ControllerTest {
         assertEquals("This case Num is invalid.", output2);
         assertEquals("Tray added successfully to case " + 'B',output3);
     }
+    //test deletejewellery
+    // add the tary and the jewellery to simulate the right situation
+    // then give a invalid jewellery id to simulate the wrong situation
     @Test
     public void testDeleteJewellery(){
         controller1.addTray('A');
@@ -67,6 +72,8 @@ class ControllerTest {
         assertTrue(output1);
         assertFalse(output2);
     }
+    //test addtray with detailed description
+    //the approach is generally similar to the method above
     @Test
     public void testAddTrayWithDes(){
         String output1 = controller1.addTray('A',10,"stone","Steel","blue",20,20,"wall-mounted","LED");
@@ -77,6 +84,9 @@ class ControllerTest {
         assertEquals("this index is invalid",output2);
         assertEquals("this index is invalid",output3);
     }
+    //test addjewellery
+    //first add one jewellery then try to delete it
+    //give a invalid jewellery id input to simulate the wrong situation
     @Test
     public void testAddjewellery(){
         controller1.addTray('A',10,"stone","Steel","blue",20,20,"wall-mounted","LED");
@@ -89,6 +99,9 @@ class ControllerTest {
         assertEquals("Case with this ID does not exist.",output2);
         assertEquals("Tray with this ID does not exist.",output3);
     }
+    //test add component
+    //add tray and jewellery as the environment
+    //try the wrong situation when the jewellery id is valid
     @Test
     public void testAddComponent(){
         controller1.addTray('A');

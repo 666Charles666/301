@@ -2,6 +2,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.AfterEach;
+
+
+    //create different environment to test
 public class TrayTest {
 
     private Tray tray;
@@ -9,6 +12,8 @@ public class TrayTest {
     private Jewellery jewellery2;
     private Case caseInstance;
 
+
+    //set up the test environment before every begining of each test
     @BeforeEach
     public void setUp() {
 
@@ -20,18 +25,17 @@ public class TrayTest {
     }
 
 
-
-
-
+    //test the display
     @Test
     public void testDisplay() {
 
         tray.add(jewellery1);
         tray.add(jewellery2);
+        //if there is error occured,fail the test
         assertDoesNotThrow(() -> tray.display());
 
     }
-
+    //test the geting and setting
     @Test
     public void testGetAndSetAttributes() {
 
@@ -52,6 +56,8 @@ public class TrayTest {
 
     }
 
+    //test the generation of id
+    //make sure it is generateed
     @Test
     public void testTrayIDGeneration() {
 
