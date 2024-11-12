@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Tray {
@@ -33,25 +34,24 @@ public class Tray {
 
      //AddLast
      public void add(Jewellery detail){
-
+          Node newNode = new Node(detail);
           if (detail == null){
                System.out.println("Wrong Input");
                return;
           }
-          Node newNode = new Node(detail);
           if (head == null){
                head = newNode;
                tail = newNode;
-
+               System.out.println("ADD SUCCESSFUL");
           }
           else {
                newNode.prev = tail;
                tail.next = newNode;
                tail = newNode;
-
+               System.out.println("ADD SUCCESSFUL");
           }
           size ++;
-          System.out.println("ADD SUCCESSFUL");
+
      }
 
      // when find the Jewellery , return the Jewellery instance , else return null
@@ -97,7 +97,8 @@ public class Tray {
                          tail = current.prev;
                     }
                     size--;
-                    System.out.println("Jewellery deleted: " + current.jewelleryInfo);
+                    System.out.println("Jewellery deleted: ");
+                    System.out.println( current.jewelleryInfo);
                     return true;
                }
                current = current.next;
@@ -105,6 +106,25 @@ public class Tray {
           System.out.println("can't find jewellery with this id");
           return false;
      }
+     public void display() {
+          if (head == null) {
+               System.out.println("No jewellery in this tray.");
+               return;
+          }
+
+          Node current = head;
+          System.out.println("Jewellery in Tray " + TrayID + ":");
+          while (current != null) {
+               Jewellery jewellery = current.jewelleryInfo;
+               System.out.println(jewellery.toString());
+               //I wanted to use components' toString directly,
+               // but idea's automatic recommendation worked better ,
+               // so I used the compiler's recommendation
+               System.out.println(Arrays.toString(jewellery.components));
+               current = current.next;
+          }
+     }
+
 
 
      public String getInlay() {
@@ -154,7 +174,4 @@ public class Tray {
           return this.size;
      }
 
-     public static void main(String[] args) {
-
-     }
 }
