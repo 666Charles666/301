@@ -2,6 +2,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * project structure
  * hash->hash->link
  */
 public class JewelleryShop {
