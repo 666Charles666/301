@@ -1,11 +1,9 @@
 import java.util.List;
+import java.util.Scanner;
 
 public class Controller {
     int sizeShop = 10;
     JewelleryShop shop = new JewelleryShop(sizeShop);
-
-
-
 
     /**
      * add new tray in JS class
@@ -24,7 +22,7 @@ public class Controller {
         }
         // If a matching Case is found, a new Tray is created and added to that Case
         if (selectedCase != null) {
-            Tray newTray = new Tray(1,"defaultInlay","defaultMaterial","defaultColor",0,0,selectedCase);
+            Tray newTray = new Tray(0,"defaultInlay","defaultMaterial","defaultColor",0,0,selectedCase);
             selectedCase.addTray(newTray, "defaultType", "defaultLighting");
             return ("Tray added successfully to case " + selectedCase.getCaseNum());
         } else {
@@ -58,10 +56,10 @@ public class Controller {
             System.out.println("Case with this ID does not exist.");
             return null;
         }
-        String result = caseChar + String.format("%02d", trayNumber);
+        String result = String.valueOf(caseChar) + String.format("%02d", trayNumber);
         Tray selectedTray = null;
         // Find the corresponding tray in the selected case's trays array
-        for (int i = 0; i < selectedCase.getSize(); i++) {
+        for (int i = 0; i < selectedCase.trays.length; i++) {
             // Get the list of trays in this slot
             List<Tray> trayList = selectedCase.trays[i];
             for (Tray tray : trayList) {
@@ -79,16 +77,16 @@ public class Controller {
         Jewellery jewellery = selectedTray.searchByJewelleryID(jewelleryNumber);
 
         if (jewellery == null){
-            System.out.println("Jewelry with this id does not exist");
+            System.out.println("Jewellery with this id does not exist");
         }else {
-            System.out.println("In the" + selectedCase + "case,the " + trayNumber + "tray, the" + jewelleryNumber + "th jewellery");
+            System.out.println("The jewellery with this id is in the " + selectedCase.getCaseNum() + " case,the " + trayNumber + "th tray, and the " + jewelleryNumber + " th jewellery");
+            System.out.println("detail for this jewellery:");
             System.out.println(jewellery.toString());
-             if (jewellery.size() > 0) {
-                System.out.println("Components for the jewellery:");
+             if (jewellery.size() >= 0) {
+                System.out.println("Components for this jewellery:");
                 for (List<Components> componentList : jewellery.components) {
                     if (componentList != null) {
                         for (Components component : componentList) {
-                            // Print each component's
                             System.out.println(component.toString());
                         }
                     }
@@ -101,7 +99,8 @@ public class Controller {
 
 
     /**
-     * delete jewellery
+     * delete jewellery by id that users input
+     * @param id
      * @return
      */
     public boolean deleteJewellery(String id){
@@ -113,7 +112,7 @@ public class Controller {
             for (Case cases : caseList) {
                 if (cases.getTrayIdentifier() == caseChar) {
                     selectedCase = cases;
-
+                    break;
                 }
                 else{
                     System.out.println("It is an invalid id");
@@ -124,7 +123,7 @@ public class Controller {
         String result = caseChar + String.format("%02d", trayNumber);
         Tray selectedTray = null;
         // Find the corresponding tray in the selected case's trays array
-        for (int i = 0; i < selectedCase.getSize(); i++) {
+        for (int i = 0; i < selectedCase.trays.length; i++) {
             // Get the list of trays in this slot
             List<Tray> trayList = selectedCase.trays[i];
             for (Tray tray : trayList) {
@@ -145,7 +144,7 @@ public class Controller {
         }
         boolean deleteJewellery = selectedTray.deleteJewellery(jewelleryNumber);
         if (deleteJewellery) {
-            System.out.println("Jewellery with ID " + jewelleryNumber + " successfully deleted.");
+            System.out.println("Jewellery with ID " + id + " successfully deleted.");
             return true;
         } else {
             System.out.println("Failed to delete jewellery with ID " + jewelleryNumber);
@@ -154,7 +153,10 @@ public class Controller {
     }
 
     /**
-     * add case
+     * Add a case by calling it directly
+     * @param size
+     * @param type
+     * @param lighting
      */
     public void addCase(int size,String type,String lighting){
         Case addedCase = new Case(size);
@@ -165,8 +167,17 @@ public class Controller {
     }
 
     /**
-     * add tray in one case
+     * Traverse the case to determine the tray add position and add it
      * @param index
+     * @param size
+     * @param inlay
+     * @param material
+     * @param color
+     * @param length
+     * @param width
+     * @param type
+     * @param lighting
+     * @return
      */
     public String addTray(char index,int size,String inlay,String material,String color,int length,int width,String type,String lighting){
         Case selectedCase = null;
@@ -191,9 +202,14 @@ public class Controller {
     }
 
     /**
-     *
+     * Iterating through the case,tray determines where to add the jewelry and adds it
      * @param caseChar
      * @param trayNumber
+     * @param description
+     * @param type
+     * @param gender
+     * @param image
+     * @param price
      */
     public void addJewellery(char caseChar,String trayNumber,String description,String type,String gender,String image,String price){
         Case selectedCase = null;
@@ -215,7 +231,6 @@ public class Controller {
             return;
         }
         String result = String.valueOf(caseChar) + String.format("%02d", Integer.parseInt(trayNumber));
-        System.out.println(result);
 
         Tray selectedTray = null;
         // Find the corresponding tray in the selected case's trays array
@@ -250,6 +265,10 @@ public class Controller {
     /**
      * add components information
      * @param id
+     * @param componentName
+     * @param componentDescription
+     * @param componentQuantity
+     * @param componentQuality
      */
     public void addComponents(String id,String componentName, String componentDescription, String componentQuantity, String componentQuality){
         Components newComponent = new Components(componentName, componentDescription, componentQuantity, componentQuality);
@@ -262,20 +281,34 @@ public class Controller {
         System.out.println("Component added successfully to Jewellery with the id : " + jewellery.getID());
     }
     /**
-     * display all of elements
+     * display all elements in this project
      */
     public void displayAll(){
         System.out.println("Case:");
         shop.displayHashTable();
         System.out.println("Tray:");
-
-    }
+        for (List<Case> caseList : shop.cases) {
+            for (Case cases : caseList) {
+                cases.displayHashTable();
+                System.out.println("Jewellery:");
+                for (List<Tray> trayList : cases.trays){
+                        for (Tray tray : trayList){
+                            tray.display();
+                            }
+                        }
+                }
+            }
+        }
 
     public static void main(String[] args) {
         Controller controller = new Controller();
         controller.addCase(3,"wood","light");
         controller.addTray('A');
         controller.addJewellery('A',"01","wood","lock","mail","www","23");
+        controller.addComponents("A011","jewellery","stone","good","best");
+        controller.jewelrySearch("A011");
+        controller.displayAll();
+        controller.deleteJewellery("A011");
     }
 
 
