@@ -9,6 +9,7 @@ public class Case {
     private static int counter = 0;
 
 
+    //The initial value of "@" is set to ensure that the first Case number added is A
     private static char identifier = '@';
     private  int size;
     private char caseNum;
@@ -29,9 +30,10 @@ public class Case {
 
     private char generateCaseNum() {
         if (identifier <= 'Y' && identifier >= '@'){
+            //Always increment before assignment to ensure uniformity
             identifier++;
             char currentChar = identifier;
-            
+
             return currentChar;
         }else {
             System.out.println("The maximum capacity is exceeded");
@@ -41,7 +43,7 @@ public class Case {
     /**
      * a hash function
      */
-    public int hushFunction(int key){
+    public int hashFunction(int key){
         return Math.abs(key%trays.length);
     }
 
@@ -56,7 +58,7 @@ public class Case {
         this.lighting = lighting;
         this.type = type;
         int key = item.hashCode();
-        int index = hushFunction(key);
+        int index = hashFunction(key);
         trays[index].add(item);
         size++;
         return index;
